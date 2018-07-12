@@ -86,7 +86,13 @@ foreach($fileSystemIterator as $file) {
 }
 
 $captionText = file_get_contents($captionPath, true);
-$caption = "$captionText";
+$caption = "$captionText
+
+
+
+
+
+creds @trevorbot420 for the code";
 
 //////////////////////
 $ig = new \InstagramAPI\Instagram($debug, $truncatedDebug);
@@ -159,7 +165,14 @@ else{
   if($mediaParts["extension"] == "jpg" || $mediaParts["extension"] == "jpeg" || $mediaParts["extension"] == "png" || $mediaParts["extension"] == "PNG"){
     $captionPath = "$folderPath/media/caption" . $mediaParts["filename"] . ".txt";
     $captionText = file_get_contents($captionPath, true);
-    $caption = "$captionText";
+    $caption = "$captionText
+
+
+
+
+
+
+    creds @trevorbot420 for the code";
 
     try {
         $photo = new \InstagramAPI\Media\Photo\InstagramPhoto($randMedia);
@@ -175,7 +188,14 @@ else{
   if ($mediaParts["extension"] == "mp4") {
     $captionPath = "$folderPath/media/caption" . $mediaParts["filename"] . ".txt";
     $captionText = file_get_contents($captionPath, true);
-    $caption = "$captionText - volume up.";
+    $caption = "$captionText - volume up.
+
+
+
+
+
+
+    creds @trevorbot420 for the code";
 
 try {
     $video = new \InstagramAPI\Media\Video\InstagramVideo($randMedia);
