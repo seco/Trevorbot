@@ -2,13 +2,13 @@
 
 set_time_limit(0);
 date_default_timezone_set('UTC');
-$folderPath = "/Users/luca/Desktop/bots/trevorbot";
-require "$folderPath/composer/vendor/autoload.php";
+$folderPath = "";
+require "$folderPath/vendor/autoload.php";
 
 
 /////// CONFIG ///////
-$username = 'trevorbot420';
-$password = 'firebase';
+$username = 'xxxxxxxx';
+$password = 'xxxxxxxx';
 $mediaIdArray = [];
 $debug = true;
 $truncatedDebug = false;

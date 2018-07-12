@@ -17,8 +17,10 @@ def downloadfile(name,url):
     print("Done")
     f.close()
 
-username = 'memescraper420'
-password = 'squamish2.0'
+username = 'xxxxxxxx'
+password = 'xxxxxxxx'
+
+folderPath = ''
 
 reddit = praw.Reddit(client_id='7SSTPtjQngFGyA',
                      client_secret='O-qmkSkaLLdug8agGgtUE0Tc7WY',
@@ -48,7 +50,7 @@ for media in reddit.redditor(username).upvoted(limit=16):
         if urlArray[-1] == "jpg":
             #normal image
             try:
-                with open("/Users/luca/Desktop/bots/trevorbot/media/reddit" + str(count) + ".jpg", 'wb') as media:
+                with open(folderPath + "/media/reddit" + str(count) + ".jpg", 'wb') as media:
                     media.write(mediaData.content)
             except IOError as e:
                 print("Couldn't open or write to file - image error. (%s)." % e)
@@ -56,10 +58,10 @@ for media in reddit.redditor(username).upvoted(limit=16):
         if urlArray[-1] == "gifv":
             #gif hosted on imgur
             mediaUrl = mediaUrl.replace("gifv", "mp4")
-            downloadfile("/Users/luca/Desktop/bots/trevorbot/media/reddit" + str(count) + ".mp4",mediaUrl)
+            downloadfile(folderPath + "/media/reddit" + str(count) + ".mp4",mediaUrl)
         # create custom caption file
         try:
-            with open("/Users/luca/Desktop/bots/trevorbot/media/captionreddit" + str(count) + ".txt", 'w') as caption:
+            with open(folderPath + "/media/captionreddit" + str(count) + ".txt", 'w') as caption:
                 print(f"Meme from Reddit. " + str(title) +  " - from u/" + str(op) + ".", file=caption)
         except IOError as e:
             print("Couldn't open or write to file - caption write error. (%s)." % e)
