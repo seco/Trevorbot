@@ -18,6 +18,7 @@
 - "usr/bin/php full/path/to/upload.php" is the only command which needs to be run. This can be automated using a cronjob - https://superuser.com/questions/1144910/how-do-i-setup-a-cron-job-on-os-x-to-run-a-curl-command-at-a-specific-time-every
 - When using cron, the output of the scripts will be put in .txt files a debug folder
 - Media queued for upload will be put in a 'media' folder
+- Note that automatic captions are created crediting the source of the media uploaded
 
 # Creds
 - PRAW - python wrapper for the reddit API
