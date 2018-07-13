@@ -43,6 +43,13 @@ try {
     exit();
 }
 
+
+//if there is no more media to upload delete any remaining files
+if(count(glob("$folderPath/media/*.{jpg,mp4}", GLOB_BRACE)) == 0){
+  array_map('unlink', glob( "$folderPath/media/*.txt"));
+}
+
+
 if(count(glob("$folderPath/media/*")) === 0){
 
   echo "getting more media to post";
