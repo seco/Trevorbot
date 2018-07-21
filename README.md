@@ -1,6 +1,6 @@
 
 # Info
-- Trevorbot automatically uploads media from reddit and instagram to a specified instagram account
+- Trevorbot uploads images liked by an account on reddit/instagram and uploads them to that account
 - Please credit @trevorbot420 in your bio if you use this bot
 
 # Installation
@@ -13,8 +13,8 @@
 - Change the 'username', 'password' and 'folderPath' variables near the top of 'upload.php', 'getPicsInstagram.php', and 'getPicsReddit.py'
 - The 'folderPath' variable should be the full path to the project's directory
 ## Extra Setup
-- "usr/bin/php full/path/to/upload.php" is the only command which needs to be run. This can be automated using a cronjob - https://superuser.com/questions/1144910/how-do-i-setup-a-cron-job-on-os-x-to-run-a-curl-command-at-a-specific-time-every
-- When using cron, the output of the scripts will be put in .txt files a debug folder
+- "usr/bin/php full/path/to/upload.php" is the only command which needs to be run. This can be automated using a cronjob or launchd - https://superuser.com/questions/1144910/how-do-i-setup-a-cron-job-on-os-x-to-run-a-curl-command-at-a-specific-time-every
+- When using cron (or launchd), the output of the scripts will be put in .txt files in a debug folder
 - Media queued for upload will be put in a 'media' folder
 - Note that automatic captions are created crediting the source of the media uploaded
 
