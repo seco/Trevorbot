@@ -1,6 +1,7 @@
 
 # Info
-- Trevorbot uploads images liked by an account on reddit/instagram and uploads them to that account
+- Trevorbot uploads images liked by an instagram account on reddit/instagram and uploads them to that account
+- See @trevorbot420 as an example of usage
 - Please credit @trevorbot420 in your bio if you use this bot
 
 # Installation
