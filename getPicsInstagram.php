@@ -16,12 +16,37 @@ function videoDownload($videoPath, $mediaObj){
   file_put_contents($videoPath, $data);
 }
 
-
+function getTrueOp($item){
+  //check if they are @ting someone in the caption and add them to credits
+  if ($item->hasCaption()){
+    $opCaption = $item->getCaption()->getText();
+    print($opCaption);
+    $opCaptionExploded = explode(" ", $opCaption);
+    //if the @ sign is not by itself
+    if (!in_array("@", $opCaptionExploded)){
+      print("not in array");
+      //so now if the caption contains @ we know it is not by itself
+      if (strpos($opCaption, "@") !== false){
+        print("there is a credit in caption");
+        //get first string of @ appearance
+        foreach ($opCaptionExploded as $value) {
+          if (strpos($value, "@") !== false){
+            print("not equal to false");
+            $trueOp = $value;
+             break;
+          }
+        }
+        $trueOp = str_replace("@","",$trueOp);
+        return($trueOp);
+      }
+    }
+  }
+}
 
 set_time_limit(0);
 date_default_timezone_set('UTC');
-$folderPath = "";
-require "$folderPath/vendor/autoload.php";
+$folderPath = "/Users/luca/Desktop/bots/trevorbot";
+require "$folderPath/composer/vendor/autoload.php";
 
 /////// CONFIG ///////
 $username = 'xxxxxxxx';
@@ -60,18 +85,29 @@ foreach ($items as $item) {
   //find media type - video, carousel, image
   $mediaType = $item->getMediaType();
 
+  //get true op if there is one
+  $credit = getTrueOp($item);
+  if($credit == null){
+    //if not just credit meme account you stole from
+    $credit = $item->getUser()->getUsername();
+  }
+  else{
+    $stolenFrom = $item->getUser()->getUsername();
+    $credit = "$credit, (stolen from @$stolenFrom)";
+  }
+
   if($mediaType == 1){
     $count++;
     $path = "$folderPath/media/" . $count . ".jpg";
     imageDownload($path, $item);
     //create caption.txt
-    file_put_contents($folderPath . "/media/caption" . $count . ".txt", "creds @" . $item->getUser()->getUsername());
+    file_put_contents($folderPath . "/media/caption" . $count . ".txt", "creds @" . $credit);
   }
   if($mediaType == 2){
     $count++;
     $path = "$folderPath/media/" . $count . ".mp4";
     videoDownload($path, $item);
-    file_put_contents($folderPath . "/media/caption" . $count . ".txt", "creds @" . $item->getUser()->getUsername());
+    file_put_contents($folderPath . "/media/caption" . $count . ".txt", "creds @" . $credit);
   }
   if($mediaType == 8){
     $carouselMedia = $item->getCarouselMedia();
@@ -81,7 +117,7 @@ foreach ($items as $item) {
     $filePath = $folderPath . "/media/$uniqueId/";
 
     //create caption.txt
-    file_put_contents($filePath . "caption.txt", "creds @" . $item->getUser()->getUsername());
+    file_put_contents($filePath . "caption.txt", "creds @" . $credit);
 
     $carouselCount = 0;
     foreach ($carouselMedia as $media) {
