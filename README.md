@@ -16,6 +16,7 @@
 ## Extra Setup
 - "usr/bin/php full/path/to/upload.php" is the only command which needs to be run. This can be automated using a cronjob or launchd - https://superuser.com/questions/1144910/how-do-i-setup-a-cron-job-on-os-x-to-run-a-curl-command-at-a-specific-time-every
 - When using cron (or launchd), the output of the scripts will be put in .txt files in a debug folder
+- Change the '$debug' variables at the top of 'getPicsInstagram.php' and 'upload.php' to 'true' for a more in depth debug output
 - Media queued for upload will be put in a 'media' folder
 - Note that automatic captions are created crediting the source of the media uploaded
 

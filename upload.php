@@ -10,7 +10,7 @@ require "$folderPath/vendor/autoload.php";
 $username = 'xxxxxxxx';
 $password = 'xxxxxxxx';
 $mediaIdArray = [];
-$debug = true;
+$debug = false;
 $truncatedDebug = false;
 //////////////////////
 
